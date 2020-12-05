@@ -1,0 +1,71 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+
+    /* 
+    g++ lives in 
+    /Library/Developer/CommandLineTools/usr/bin 
+
+    tasks.json can be replaced a make file, gnu.org/software/make/
+    */
+
+    "version": "2.0.0",
+    "tasks": [
+        // { //basic compile file to object
+        //     "label": "build",
+        //     "type": "shell",
+        //     "command": "g++ ${workspaceFolder:Engine}/src/hello.cpp -o ${workspaceFolder:Engine}/bin/hello"
+        // },
+
+        { // creates dynamiclib
+            "label": "build_lib",
+            "type": "shell",
+            "command": "g++",
+            "args":
+             [ "-dynamiclib",
+                "-fPIC",
+                "-o",
+                "${workspaceFolder:Engine}/bin/libfoo.dylib",
+                "${workspaceFolder:Engine}/src/test.cpp",
+            ],
+            "group": "build"
+        },
+
+        { 
+            "label": "build_engine",
+            "type": "shell",
+            "command": "g++",
+            "args": [ 
+                // "--verbose",
+                "${workspaceFolder:Sandbox}/src/libtesting.cpp",
+                "-I", // include headers path for compiler
+                 "${workspaceFolder:Engine}/src",
+                "-L", // Library directory 
+                "${workspaceFolder:Engine}/bin",
+                "-l", // library flag
+                "foo",
+                 "-o",
+                "${workspaceFolder:Sandbox}/bin/testingout",      
+                 ],
+            "group":"build",
+            "dependsOn":["build_lib"]
+        },
+
+        {
+            "label": "run_sandbox",
+            "type": "shell",
+            "command": "${workspaceFolder:Sandbox}/bin/testingout",
+            "group": "build",
+            "dependsOn":["build_engine"]
+        }
+    ]
+}
+
+// "command": "${workspaceRoot}/bin/hello"
+
+/* NOTES
+
+file <file>
+lipo -info <file>
+
+*/
