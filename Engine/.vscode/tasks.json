@@ -25,8 +25,8 @@
              [ "-dynamiclib",
                 "-fPIC",
                 "-o",
-                "${workspaceFolder:Engine}/bin/libfoo.dylib",
-                "${workspaceFolder:Engine}/src/test.cpp",
+                "${workspaceFolder:Engine}/bin/libengine.dylib",
+                "${workspaceFolder:Engine}/src/core/Application.cpp",
             ],
             "group": "build"
         },
@@ -37,15 +37,16 @@
             "command": "g++",
             "args": [ 
                 // "--verbose",
-                "${workspaceFolder:Sandbox}/src/libtesting.cpp",
+                "-std=c++11",
+                "${workspaceFolder:Sandbox}/src/SandboxApp.cpp",
                 "-I", // include headers path for compiler
                  "${workspaceFolder:Engine}/src",
                 "-L", // Library directory 
                 "${workspaceFolder:Engine}/bin",
                 "-l", // library flag
-                "foo",
+                "engine",
                  "-o",
-                "${workspaceFolder:Sandbox}/bin/testingout",      
+                "${workspaceFolder:Sandbox}/bin/SandboxApp",      
                  ],
             "group":"build",
             "dependsOn":["build_lib"]
@@ -54,7 +55,7 @@
         {
             "label": "run_sandbox",
             "type": "shell",
-            "command": "${workspaceFolder:Sandbox}/bin/testingout",
+            "command": "${workspaceFolder:Sandbox}/bin/SandboxApp",
             "group": "build",
             "dependsOn":["build_engine"]
         }
