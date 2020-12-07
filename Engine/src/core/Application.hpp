@@ -1,10 +1,7 @@
 #pragma once
 
-#include "Core.hpp"
-
 namespace Engine {
    
-    // class ENGINE_API Application
     class Application
     {
       public:

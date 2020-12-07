@@ -3,9 +3,8 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder:Engine}/src",
-                // "${workspaceFolder:Engine}/3rdparty/spdlog/include/spdlog"
+                // "${workspaceFolder}/**", // was causing include errors
+                "${workspaceFolder:Engine}/3rdparty/spdlog/include"
             ],
             "defines": [],
             "macFrameworkPath": [

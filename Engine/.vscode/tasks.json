@@ -7,6 +7,8 @@
     /Library/Developer/CommandLineTools/usr/bin 
 
     tasks.json can be replaced a make file, gnu.org/software/make/
+
+     C/C++: Log Diagnostics 
     */
 
     "version": "2.0.0",
@@ -22,11 +24,15 @@
             "type": "shell",
             "command": "g++",
             "args":
-             [ "-dynamiclib",
+             [  "-std=c++11",
+                "-dynamiclib",
                 "-fPIC",
                 "-o",
                 "${workspaceFolder:Engine}/bin/libengine.dylib",
+                "${workspaceFolder:Engine}/src/core/Log.cpp",
                 "${workspaceFolder:Engine}/src/core/Application.cpp",
+                "-I",
+                "${workspaceFolder:Engine}/3rdparty/spdlog/include",
             ],
             "group": "build"
         },
@@ -41,6 +47,8 @@
                 "${workspaceFolder:Sandbox}/src/SandboxApp.cpp",
                 "-I", // include headers path for compiler
                  "${workspaceFolder:Engine}/src",
+                 "-I",
+                 "${workspaceFolder:Engine}/3rdparty/spdlog/include",
                 "-L", // Library directory 
                 "${workspaceFolder:Engine}/bin",
                 "-l", // library flag
