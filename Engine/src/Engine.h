@@ -17,14 +17,11 @@ Header files used by client
 
 int main(int argc, char** argv)
 {
-
     Engine::Log::Init();
-    Engine::Log::GetCoreLogger()->warn("Initialized Log!");
-    Engine::Log::GetClientLogger()->info("Initialized Log!");
-
     auto app = Engine::CreateApplication();
     app->Run();
     delete app;
+    
 }
 
 

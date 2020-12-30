@@ -3,17 +3,21 @@
         {
             "name": "Mac",
             "includePath": [
-                // "${workspaceFolder}/**", // was causing include errors
-                "${workspaceFolder:Engine}/3rdparty/spdlog/include"
+                "${workspaceFolder}/3rdparty/spdlog/include"
             ],
             "defines": [],
             "macFrameworkPath": [
                 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
             ],
-            "compilerPath": "/usr/bin/clang",
+            "compilerPath": "/usr/bin/g++",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64"
+            "intelliSenseMode": "gcc-x64",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/3rdparty/spdlog/include"
+                ]
+            }
         }
     ],
     "version": 4

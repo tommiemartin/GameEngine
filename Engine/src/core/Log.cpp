@@ -4,7 +4,9 @@
 
 namespace Engine{
 
-        std::shared_ptr<spdlog::logger> Log::s_CoreLogger;  // why here if in header?
+        //static functions in init so coreLogger vars must be static and revealed by declaration here
+
+        std::shared_ptr<spdlog::logger> Log::s_CoreLogger;  
         std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
 
         void Log::Init(){
@@ -12,8 +14,8 @@ namespace Engine{
             s_CoreLogger   = spdlog::stdout_color_mt("ENGINE");
             s_CoreLogger->set_level(spdlog::level::trace);
 
-            s_ClientLogger = spdlog::stdout_color_mt("APP");
+            s_ClientLogger = spdlog::stdout_color_mt("CLIENT");
             s_ClientLogger->set_level(spdlog::level::trace);
         }
-        
+    
 } // namespace Engine
