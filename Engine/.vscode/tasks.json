@@ -33,6 +33,7 @@
                 "${workspaceFolder:Engine}/src/core/Application.cpp",
                 "-I",
                 "${workspaceFolder:Engine}/3rdparty/spdlog/include",
+                // "${workspaceFolder:Engine}/src/Events"
             ],
             "group": "build"
         },

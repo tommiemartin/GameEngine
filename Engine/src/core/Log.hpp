@@ -1,5 +1,6 @@
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
+#include <spdlog/fmt/ostr.h> //output stream operator for custom types like events
 
 #include <memory> //to use shared pointers
 

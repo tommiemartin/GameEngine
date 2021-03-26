@@ -1,14 +1,14 @@
 #pragma once
 
-/*
-Header files used by client
-*/
+
+/* Entry Point called by Client
+   and header files
+ */
+
+
 #include "core/Application.hpp"
 #include "core/Log.hpp"
 
-/* Entry Point called by Client */
-
-// #include "core/EntryPoint. h"
 
 // extern Engine::Application* Engine::CreateApplication(); 
 /* Somewhere an Engine Application pointer.
@@ -24,10 +24,7 @@ int main(int argc, char** argv)
     
 }
 
-
-/* Entry Point */
-
-/* extern : don't name name of object's functions. Names in extrnal objects could have been mangled due to c++ overloading */
+/* extern : don't rename name of object's functions. Names in extrnal objects could have been mangled due to c++ overloading */
 /* objects can be checked in terminal with nm <object> */
 
 /*
@@ -40,4 +37,9 @@ As opposed to Sandbox having main with run and delete, sandbox only calls create
 
        return 0;
      }
+
+1) creates application by calling CreateApplication in Sandbox
+2) main calls the run function 
+3) main deletes application 
+
 */
