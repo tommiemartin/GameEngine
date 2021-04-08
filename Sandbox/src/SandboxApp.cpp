@@ -4,7 +4,7 @@ class Sandbox : public Engine::Application {
 public:
     Sandbox()
     {
-
+        CLIENT_INFO("HELLO!");
     }
 
     ~Sandbox()
@@ -13,7 +13,7 @@ public:
     }
 };
 
-//Definintion!! declared in app.hpp
+//Definintion!! declared in application.hpp
 // An instanced sandbox is just an instance of the application class
 Engine::Application* Engine::CreateApplication(){
     return new Sandbox();

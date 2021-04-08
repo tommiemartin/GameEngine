@@ -2,7 +2,7 @@
 
 
 /* Entry Point called by Client
-   and header files
+   and header files needed by client
  */
 
 
